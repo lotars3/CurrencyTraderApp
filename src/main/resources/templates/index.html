@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title>TradeApp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        function sendData() {
+            var curr1 = document.getElementById("currency1").value;
+            var curr2 = document.getElementById("currency2").value;
+
+            window.location.href = "/" + curr1 + "/" + curr2;
+        }
+
+        function onInputEdited(number) {
+            var curr = document.getElementById("currency" + number).value;
+            callToServer(curr);
+        }
+
+        function callToServer(typedText) {
+            console.log(typedText);
+            $.ajax({
+                url: "/api/currency/" + typedText,
+                type: "get", //send it through get method
+                success: function (response) {
+                    var list = document.getElementById('hints1');
+                    list.innerHTML = "";
+
+                    response.forEach(function (oneElement) {
+                        var option = document.createElement('option');
+                        option.value = oneElement;
+                        list.appendChild(option);
+                    })
+                },
+                error: function (xhr) {
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div style="text-align: center; font-size: 70px; color: brown">Ostatnie 10 notowań dla dwóch wybranych walut</div>
+<canvas id="currencyChart" width="200px" height="50px"></canvas>
+
+<div style="text-align: center;">
+    <h6>(Jeśli chcesz zobaczyć wykres dla jednej waluty pozostaw drugie pole puste)</h6>
+    <input oninput="onInputEdited(1)" id="currency1" list="hints1" placeholder="Podaj walutę">
+    <input oninput="onInputEdited(2)" id="currency2" list="hints1" placeholder="Podaj walutę">
+    <datalist id="hints1"></datalist>
+    <button class="btn - btn-primary" onclick="sendData()">Pokaż wykres/-y</button>
+</div>
+
+<script th:inline="javascript">
+    var ctx = document.getElementById("currencyChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [[${labels}]],
+            datasets: [{
+                label: [[${currencyNameOne}]],
+                data: [[${dataOne}]],
+                backgroundColor: "rgba(153, 102, 255, 0.2)"
+            }, {
+                label: [[${currencyNameTwo}]],
+                data: [[${dataTwo}]],
+                backgroundColor: "rgba(54, 162, 235, 0.2)"
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: false
+                    }
+                }]
+            }
+        }
+    });
+</script>
+</body>
+</html>
