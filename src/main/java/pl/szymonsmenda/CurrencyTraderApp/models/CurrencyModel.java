@@ -1,4 +1,4 @@
-package pl.krzysiekstuglik.currencyApp.models;
+package pl.szymonsmenda.CurrencyTraderApp.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,4 +1,4 @@
-package pl.krzysiekstuglik.currencyApp.models;
+package pl.szymonsmenda.CurrencyTraderApp.models;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.client.ClientHttpResponse;

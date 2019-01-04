@@ -1,4 +1,4 @@
-package pl.krzysiekstuglik.currencyApp.controllers;
+package pl.szymonsmenda.CurrencyTraderApp.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import pl.krzysiekstuglik.currencyApp.models.CurrencyModel;
-import pl.krzysiekstuglik.currencyApp.models.services.CurrencyService;
-import pl.krzysiekstuglik.currencyApp.models.tasks.SendSMSTask;
+import pl.szymonsmenda.CurrencyTraderApp.models.CurrencyModel;
+import pl.szymonsmenda.CurrencyTraderApp.models.services.CurrencyService;
+import pl.szymonsmenda.CurrencyTraderApp.models.tasks.SendSMSTask;
 
 
 @Controller

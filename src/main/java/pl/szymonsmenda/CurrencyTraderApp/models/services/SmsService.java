@@ -1,4 +1,4 @@
-package pl.krzysiekstuglik.currencyApp.models.services;
+package pl.szymonsmenda.CurrencyTraderApp.models.services;
 
 import org.springframework.stereotype.Service;
 import pl.smsapi.OAuthClient;

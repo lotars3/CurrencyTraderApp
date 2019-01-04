@@ -1,4 +1,4 @@
-package pl.krzysiekstuglik.currencyApp;
+package pl.szymonsmenda.CurrencyTraderApp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

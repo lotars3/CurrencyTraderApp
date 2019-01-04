@@ -1,12 +1,12 @@
-package pl.krzysiekstuglik.currencyApp.models.tasks;
+package pl.szymonsmenda.CurrencyTraderApp.models.tasks;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import pl.krzysiekstuglik.currencyApp.models.CurrencyModel;
-import pl.krzysiekstuglik.currencyApp.models.services.CurrencyService;
-import pl.krzysiekstuglik.currencyApp.models.services.SmsService;
+import pl.szymonsmenda.CurrencyTraderApp.models.CurrencyModel;
+import pl.szymonsmenda.CurrencyTraderApp.models.services.CurrencyService;
+import pl.szymonsmenda.CurrencyTraderApp.models.services.SmsService;
 
 import java.util.List;
 
